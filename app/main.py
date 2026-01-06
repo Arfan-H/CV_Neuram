@@ -23,7 +23,6 @@ async def summarize_cv(file: UploadFile = File(...)):
     summary = summarize_cv_with_llm(cv_text)
 
     if "error" in summary:
-        # 🔥 tampilkan error ASLI dari OpenRouter
         raise HTTPException(status_code=500, detail=summary["error"])
 
     return summary
